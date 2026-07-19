@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Megha Jewellers — Timeless Gold that Shines Bright | Mysuru</title>
+  <meta name="description" content="Megha Jewellers, Mysuru — Premium 22 Carat 916 Hallmark Gold jewellery. Bridal sets, necklaces, bangles, earrings, temple jewellery, antique & customized designs in Kuvempu Nagar." />
+  <meta name="keywords" content="Megha Jewellers, gold jewellery Mysuru, 22 carat 916 hallmark, bridal jewellery, temple jewellery, antique jewellery" />
+  <meta property="og:title" content="Megha Jewellers — Timeless Gold that Shines Bright" />
+  <meta property="og:description" content="Premium 22 Carat 916 Hallmark Gold jewellery in Mysuru. Bridal, temple, antique & customized designs." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══ GRAIN ════════════════════════════════════════════════ -->
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ══ PARTICLES ════════════════════════════════════════════ -->
+<canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+<!-- ══ CURSOR ═══════════════════════════════════════════════ -->
+<div class="cursor-orb"  id="cursorOrb"  aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     PRELOADER
+══════════════════════════════════════════════════════════ -->
+<div id="preloader" role="status" aria-label="Loading Megha Jewellers">
+  <canvas id="preloader-canvas" aria-hidden="true"></canvas>
+  <div class="pl-content">
+    <div class="pl-monogram" id="plMono">Mysuru · Karnataka</div>
+    <h1 class="pl-logo"    id="plLogo">Megha Jewellers</h1>
+    <p  class="pl-tagline" id="plTag">Timeless Gold that Shines Bright</p>
+    <div class="pl-bar" id="plBar">
+      <div class="pl-bar-fill" id="plFill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     DESKTOP NAV TOGGLE + PANEL
+══════════════════════════════════════════════════════════ -->
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+  <div class="nav-toggle-icon">
+    <span></span><span></span><span></span>
+  </div>
+</button>
+
+<!-- Nav overlay / backdrop -->
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation">
+  <div class="nav-panel" id="navPanel">
+
+    <div class="nav-panel-header">
+      <div class="nav-panel-brand">Megha Jewellers</div>
+    </div>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#hero"          class="nav-link"><span>Home</span>              <span class="nav-link-num">01</span></a>
+      <a href="#story-intro"   class="nav-link"><span>Our Story</span>         <span class="nav-link-num">02</span></a>
+      <a href="#collections"   class="nav-link"><span>Collections</span>       <span class="nav-link-num">03</span></a>
+      <a href="#bridal"        class="nav-link"><span>Bridal Universe</span>   <span class="nav-link-num">04</span></a>
+      <a href="#craftsmanship" class="nav-link"><span>Craftsmanship</span>     <span class="nav-link-num">05</span></a>
+      <a href="#contact"       class="nav-link"><span>Visit Our Atelier</span><span class="nav-link-num">06</span></a>
+    </nav>
+
+    <div class="nav-panel-footer">
+      <div class="nav-footer-label">Get in Touch</div>
+      <div class="nav-footer-text">
+        +91 99456 16530<br>
+        Kuvempu Nagar, Mysuru<br>
+        Mon – Sun · 10 AM – 9 PM
+      </div>
+      <a href="https://wa.me/919945616530" target="_blank" rel="noopener" class="nav-footer-cta">
+        WhatsApp Us →
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MOBILE NAV BUTTON (bottom right)
+══════════════════════════════════════════════════════════ -->
+<button class="mobile-nav-btn" id="mobileNavBtn" aria-label="Open menu">
+  <div class="nav-toggle-icon">
+    <span style="background:#090806"></span>
+    <span style="background:#090806"></span>
+    <span style="background:#090806"></span>
+  </div>
+</button>
+
+<!-- ══════════════════════════════════════════════════════════
+     PRODUCT EXPANSION OVERLAY
+══════════════════════════════════════════════════════════ -->
+<div id="product-overlay" role="dialog" aria-modal="true" aria-label="Product detail" aria-hidden="true">
+
+  <!-- Mobile close bar -->
+  <div class="overlay-close-bar">
+    <span style="font-family:var(--font-accent);font-size:.68rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase">Megha Jewellers</span>
+    <button onclick="closeOverlay()" style="background:none;border:none;color:var(--champagne);font-size:1.5rem;cursor:pointer;padding:.25rem .5rem" aria-label="Close">✕</button>
+  </div>
+
+  <div class="overlay-inner">
+
+    <!-- LEFT: Details -->
+    <div class="pd-left">
+      <button class="pd-back" onclick="closeOverlay()" id="pdBackBtn" aria-label="Back to collections">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="15" height="15"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to Collections
+      </button>
+
+      <div class="pd-category" id="pdCategory">Collection</div>
+      <h2  class="pd-name"     id="pdName">Jewellery Name</h2>
+      <div class="pd-divider"></div>
+
+      <div class="pd-specs">
+        <div class="spec-item"><div class="spec-lbl">Gold Purity</div><div class="spec-val" id="pdPurity">22K · 916</div></div>
+        <div class="spec-item"><div class="spec-lbl">Hallmark</div><div class="spec-val">BIS Certified</div></div>
+        <div class="spec-item"><div class="spec-lbl">Occasion</div><div class="spec-val" id="pdOccasion">—</div></div>
+        <div class="spec-item"><div class="spec-lbl">Customization</div><div class="spec-val">Available</div></div>
+      </div>
+
+      <p class="pd-desc" id="pdDesc">Crafted with reverence for tradition and elegance, each piece at Megha Jewellers tells a story woven in gold.</p>
+
+      <div class="pd-ctas">
+        <a href="https://wa.me/919945616530" target="_blank" rel="noopener" class="btn-primary" id="pdWA">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.115 1.522 5.845L.057 23.882a.5.5 0 00.61.61l6.037-1.465A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.013-1.378l-.36-.214-3.726.904.92-3.636-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          Enquire on WhatsApp
+        </a>
+        <a href="tel:+919945616530" class="btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.64 3.42 2 2 0 013.62 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.29 6.29l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Us
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: 3D Jewellery Image -->
+    <div class="pd-right">
+      <div class="pd-media-glow"></div>
+      <div class="pd-media-frame">
+        <img id="pdImg" src="" alt="" loading="lazy" />
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ① HERO — 3D GOLD ORNAMENT
+══════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Megha Jewellers — Cinematic Hero">
+
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-light-cone" aria-hidden="true"></div>
+  <div class="hero-light-cone" aria-hidden="true"></div>
+  <div class="hero-light-cone" aria-hidden="true"></div>
+
+  <!-- LEFT: Text -->
+  <div class="hero-text">
+    <div class="hero-eyebrow" id="heroEyebrow">22K · 916 Hallmark · Mysuru</div>
+    <h1 class="hero-title" id="heroTitle">
+      Where Gold<br>Becomes<br><em>Legend</em>
+    </h1>
+    <p class="hero-tagline" id="heroTagline">Timeless Gold that Shines Bright</p>
+    <div class="hero-ctas" id="heroCtas">
+      <a href="#collections" class="btn-primary">Explore Collections</a>
+      <a href="#contact"     class="btn-secondary">Visit Our Atelier</a>
+    </div>
+  </div>
+
+  <!-- RIGHT: Earring Image -->
+  <div class="hero-ornament-wrap">
+    <div class="ornament-glow-ring" aria-hidden="true"></div>
+    <img id="hero-earring" src="assets/home img.png" alt="22K Gold Earring" class="hero-earring-img" />
+    <canvas id="ornament-sparkle-canvas" aria-hidden="true"></canvas>
+    <div class="ornament-spotlight" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-scroll-cue" id="heroScrollCue" aria-hidden="true">
+    <span>Scroll to Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ② STORY BRIDGE
+══════════════════════════════════════════════════════════ -->
+<div class="story-bridge" id="story-intro" aria-label="Our story">
+  <div class="story-bridge-bg" aria-hidden="true"></div>
+  <div class="story-text-block">
+    <span class="story-line" data-delay="0">In the ancient city of Mysuru,</span>
+    <span class="story-line" data-delay="140">where royal traditions breathe still,</span>
+    <span class="story-line" data-delay="280">gold is not merely a metal.</span>
+    <span class="story-line accent" data-delay="500">It is memory. It is devotion.<br>It is love, made eternal.</span>
+  </div>
+</div>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ③ PHILOSOPHY
+══════════════════════════════════════════════════════════ -->
+<section id="philosophy" aria-label="Our philosophy">
+  <div class="philosophy-inner">
+
+    <div>
+      <div class="philosophy-label" id="philLabel">The Megha Promise</div>
+      <h2 class="philosophy-headline" id="philHeadline">
+        <span class="word">Every</span>
+        <span class="word">ornament</span>
+        <span class="word">carries</span>
+        <span class="word">the</span>
+        <span class="word">soul</span>
+        <span class="word">of</span>
+        <span class="word">a</span>
+        <span class="word">master</span>
+        <span class="word">craftsman.</span>
+      </h2>
+      <p class="philosophy-body" id="philBody">
+        At Megha Jewellers, we believe gold is more than a metal — it is memory, devotion, and heritage made tangible. Each piece is crafted with 22 Karat 916 Hallmark gold, certified pure, finished with patience. From intricate bridal sets to delicate everyday pieces, we create jewellery that is worn, cherished, and passed down through generations.
+      </p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card" data-delay="0">
+        <span class="stat-num">22K</span>
+        <span class="stat-lbl">Gold Purity</span>
+      </div>
+      <div class="stat-card" data-delay="100">
+        <span class="stat-num">916</span>
+        <span class="stat-lbl">Hallmark Certified</span>
+      </div>
+      <div class="stat-card" data-delay="200">
+        <span class="stat-num">10K+</span>
+        <span class="stat-lbl">Happy Families</span>
+      </div>
+      <div class="stat-card" data-delay="300">
+        <span class="stat-num">247+</span>
+        <span class="stat-lbl">Exclusive Designs</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ④ COLLECTIONS
+══════════════════════════════════════════════════════════ -->
+<section id="collections" aria-label="Jewellery collections">
+
+  <div class="section-header" id="collHeader">
+    <div class="section-eyebrow">Our Collections</div>
+    <h2 class="section-title">Masterpieces in Gold</h2>
+    <p class="section-sub">Eight worlds of exquisite 22 Karat gold jewellery — where every piece is a story, every design a legacy.</p>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid">
+
+    <article class="jewel-card float-1"
+      data-name="Bridal Jewellery Set"
+      data-category="Bridal Collection"
+      data-occasion="Wedding"
+      data-description="Our bridal sets are crafted for the most luminous moment of your life. Each piece is hand-finished with intricate temple motifs, stone settings, and traditional craftsmanship — designed to make you radiant on your wedding day and cherished for generations."
+      data-img="assets/images/bridal_necklace.jpg"
+      role="button" tabindex="0" aria-label="View Bridal Set details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/bridal_necklace.jpg" alt="22K Bridal Jewellery Set" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Bridal</div>
+          <h3 class="jewel-card-name">Bridal Jewellery Set</h3>
+          <p  class="jewel-card-desc">Complete sets — necklace, earrings, bangles & more.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-2"
+      data-name="Gold Necklaces"
+      data-category="Necklace Collection"
+      data-occasion="All Occasions"
+      data-description="From grand temple necklaces to delicate everyday chains, our necklace collection spans the full spectrum of gold craftsmanship. Every piece is designed to drape gracefully and catch the light in ways that take your breath away."
+      data-img="assets/images/bridal_necklace.jpg"
+      role="button" tabindex="0" aria-label="View Necklaces details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/bridal_necklace.jpg" alt="22K Gold Necklaces" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Necklaces</div>
+          <h3 class="jewel-card-name">Gold Necklaces</h3>
+          <p  class="jewel-card-desc">Temple, antique, layered and contemporary designs.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-3"
+      data-name="Gold Bangles"
+      data-category="Bangle Collection"
+      data-occasion="Daily & Festive"
+      data-description="Our bangles celebrate the timeless tradition of adorning the wrist with gold. From plain polished bangles to ornately carved temple-work designs, each is crafted for comfort, elegance and lasting beauty."
+      data-img="assets/images/gold_bangles.jpg"
+      role="button" tabindex="0" aria-label="View Bangles details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/gold_bangles.jpg" alt="22K Gold Bangles" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Bangles</div>
+          <h3 class="jewel-card-name">Gold Bangles</h3>
+          <p  class="jewel-card-desc">Traditional and contemporary, plain and carved.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-4"
+      data-name="Gold Earrings"
+      data-category="Earring Collection"
+      data-occasion="All Occasions"
+      data-description="From delicate studs to elaborate jhumkas, our earring collection encompasses the entire vocabulary of Indian gold jewellery design. Lightweight and comfortable, every pair is crafted for all-day elegance."
+      data-img="assets/images/gold_earrings.jpg"
+      role="button" tabindex="0" aria-label="View Earrings details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/gold_earrings.jpg" alt="22K Gold Earrings" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Earrings</div>
+          <h3 class="jewel-card-name">Gold Earrings</h3>
+          <p  class="jewel-card-desc">Jhumkas, chandbalis, studs and drop earrings.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-5"
+      data-name="Gold Rings"
+      data-category="Ring Collection"
+      data-occasion="Daily & Bridal"
+      data-description="Rings that tell stories — from simple bands worn daily to elaborate cocktail rings for special occasions. Each ring is designed with attention to comfort, proportion and the luminosity of 22 Karat gold."
+      data-img="assets/images/gold_rings.jpg"
+      role="button" tabindex="0" aria-label="View Rings details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/gold_rings.jpg" alt="22K Gold Rings" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Rings</div>
+          <h3 class="jewel-card-name">Gold Rings</h3>
+          <p  class="jewel-card-desc">Elegant bands, stone-set rings and traditional designs.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-6"
+      data-name="Gold Chains"
+      data-category="Chain Collection"
+      data-occasion="Daily Wear"
+      data-description="Our chains are crafted in diverse patterns — rope, box, curb, Singapore and traditional link designs. Lightweight yet substantial, each chain complements any pendant or stands beautifully alone."
+      data-img="assets/images/gold_chains.jpg"
+      role="button" tabindex="0" aria-label="View Chains details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/gold_chains.jpg" alt="22K Gold Chains" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Chains</div>
+          <h3 class="jewel-card-name">Gold Chains</h3>
+          <p  class="jewel-card-desc">Rope, box, curb and traditional link gold chains.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-7"
+      data-name="Mangalsutra"
+      data-category="Sacred Collection"
+      data-occasion="Wedding & Daily"
+      data-description="The mangalsutra is one of the most sacred ornaments in Indian tradition — a symbol of love, commitment and prosperity. Our collection offers traditional and contemporary designs, each crafted with reverence and 22 Karat gold."
+      data-img="assets/images/mangalsutra.jpg"
+      role="button" tabindex="0" aria-label="View Mangalsutra details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/mangalsutra.jpg" alt="22K Gold Mangalsutra" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Mangalsutra</div>
+          <h3 class="jewel-card-name">Mangalsutra</h3>
+          <p  class="jewel-card-desc">Traditional and modern mangalsutras in 22K gold.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="jewel-card float-8"
+      data-name="Pendants & Bracelets"
+      data-category="Pendant Collection"
+      data-occasion="All Occasions"
+      data-description="Pendants that carry meaning — temple motifs, deity figures, geometric forms and contemporary designs. Our pendant and bracelet collection brings together artistry and spirituality in pure 22 Karat gold."
+      data-img="assets/images/gold_pendant.jpg"
+      role="button" tabindex="0" aria-label="View Pendants details">
+      <div class="jewel-card-inner">
+        <div class="jewel-card-img"><img src="assets/images/gold_pendant.jpg" alt="22K Gold Pendants" loading="lazy" /></div>
+        <div class="jewel-card-overlay"></div>
+        <div class="jewel-card-border"></div>
+        <div class="jewel-card-sheen"></div>
+        <div class="jewel-card-info">
+          <div class="jewel-card-cat">Pendants</div>
+          <h3 class="jewel-card-name">Pendants & Bracelets</h3>
+          <p  class="jewel-card-desc">Temple pendants, deity motifs and antique bracelets.</p>
+          <span class="jewel-card-cta">Discover</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑤ BRIDAL UNIVERSE
+══════════════════════════════════════════════════════════ -->
+<section id="bridal" aria-label="Bridal jewellery universe">
+  <div class="bridal-aurora" aria-hidden="true"></div>
+  <div class="bridal-inner">
+
+    <div class="bridal-text reveal-left">
+      <div class="section-eyebrow" style="justify-content:flex-start">
+        <span style="max-width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))"></span>
+        Bridal Universe
+      </div>
+      <h2 class="bridal-title">
+        The Most Important
+        <span>Day Deserves</span>
+        Pure Gold
+      </h2>
+      <p class="bridal-body">Your bridal look is composed of moments that will be photographed, remembered, and admired for a lifetime. Megha Jewellers crafts complete bridal sets — designed to harmonize and illuminate every moment of your wedding day.</p>
+      <div class="bridal-features">
+        <div class="bridal-feat"><div class="feat-dot"></div><div class="feat-text">Complete bridal sets — coordinated from necklace to bangles</div></div>
+        <div class="bridal-feat"><div class="feat-dot"></div><div class="feat-text">Customized designs — bring your vision, we craft your dream</div></div>
+        <div class="bridal-feat"><div class="feat-dot"></div><div class="feat-text">Lightweight ornaments — comfortable throughout your wedding day</div></div>
+        <div class="bridal-feat"><div class="feat-dot"></div><div class="feat-text">Temple & antique jewellery — rooted in heritage</div></div>
+      </div>
+      <div class="pd-ctas">
+        <a href="https://wa.me/919945616530?text=Hello%2C%20I%20am%20interested%20in%20bridal%20jewellery%20sets%20at%20Megha%20Jewellers." target="_blank" rel="noopener" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.115 1.522 5.845L.057 23.882a.5.5 0 00.61.61l6.037-1.465A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.013-1.378l-.36-.214-3.726.904.92-3.636-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          Enquire Bridal Sets
+        </a>
+        <a href="#collections" class="btn-secondary">All Collections</a>
+      </div>
+    </div>
+
+    <!-- CSS 3D Image Frame -->
+    <div class="bridal-3d-frame reveal-right">
+      <div class="bridal-img-stage">
+        <div class="bridal-img-main">
+          <img src="assets/images/bridal_necklace.jpg" alt="Bridal jewellery set — Megha Jewellers" loading="lazy" />
+        </div>
+        <div class="bridal-depth-1"></div>
+        <div class="bridal-depth-2"></div>
+      </div>
+      <div class="bridal-glow-bg" aria-hidden="true"></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑥ CRAFTSMANSHIP
+══════════════════════════════════════════════════════════ -->
+<section id="craftsmanship" aria-label="Craftsmanship and quality">
+  <div class="craft-inner">
+
+    <div class="section-eyebrow reveal">Our Craft</div>
+    <h2 class="section-title reveal" style="margin-bottom:2rem">Gold Beyond Compare</h2>
+    <p class="craft-quote" id="craftQuote">
+      "We do not manufacture jewellery.<br/>
+      We <em>compose</em> it — the way a poet<br/>
+      composes a verse in gold."
+    </p>
+
+    <div class="craft-stats">
+      <div class="craft-stat" data-delay="0">
+        <span class="craft-num" data-count="22" data-suffix="K">0</span>
+        <span class="craft-lbl">Karat Gold</span>
+      </div>
+      <div class="craft-stat" data-delay="150">
+        <span class="craft-num" data-count="916" data-suffix="">0</span>
+        <span class="craft-lbl">Hallmark Purity</span>
+      </div>
+      <div class="craft-stat" data-delay="300">
+        <span class="craft-num" data-count="247" data-suffix="+">0</span>
+        <span class="craft-lbl">Exclusive Designs</span>
+      </div>
+      <div class="craft-stat" data-delay="450">
+        <span class="craft-num" data-count="10" data-suffix="K+">0</span>
+        <span class="craft-lbl">Happy Families</span>
+      </div>
+    </div>
+
+    <div class="usp-chips reveal">
+      <div class="usp-chip"><span class="chip-dot"></span>22K 916 Hallmark</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Custom Designs</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Antique Collections</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Lightweight Gold</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Temple Jewellery</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Reasonable Pricing</div>
+      <div class="usp-chip"><span class="chip-dot"></span>BIS Certified</div>
+      <div class="usp-chip"><span class="chip-dot"></span>Bridal Expertise</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑦ TESTIMONIALS
+══════════════════════════════════════════════════════════ -->
+<section id="testimonials" aria-label="Customer testimonials">
+  <div class="testimonials-inner">
+
+    <div class="section-header" id="testHeader" style="text-align:left;max-width:none">
+      <div class="section-eyebrow" style="justify-content:flex-start">
+        <span style="max-width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))"></span>
+        Stories from Our Families
+      </div>
+      <h2 class="section-title">Worn with Love</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="tcard" data-delay="0">
+        <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="tcard-text">"Light weight 916 jewellery, very beautiful designs. Megha Jewellers has the most exquisite collection I have seen in Mysuru."</p>
+        <div class="tcard-author">Mariam Sophia · Mysuru</div>
+      </div>
+      <div class="tcard" data-delay="150">
+        <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="tcard-text">"Good jewelry with reasonable price. You get genuine 22K gold at a price that makes you feel truly valued as a customer."</p>
+        <div class="tcard-author">Mamtha Choudary · Mysuru</div>
+      </div>
+      <div class="tcard" data-delay="300">
+        <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div>
+        <p class="tcard-text">"All new designs with best price. Every time I visit, there are fresh collections that surprise and delight. Truly a hidden gem."</p>
+        <div class="tcard-author">Tanishka Kumar · Mysuru</div>
+      </div>
+      <div class="tcard" data-delay="450">
+        <div class="tcard-stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p class="tcard-text">"Good jewelry shop. The quality of craftsmanship is evident in every piece. I trust Megha Jewellers for every family occasion."</p>
+        <div class="tcard-author">Ravi Kumar · Mysuru</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="ambient-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════
+     ⑧ CONTACT
+══════════════════════════════════════════════════════════ -->
+<section id="contact" aria-label="Contact and visit us">
+  <div class="contact-inner">
+
+    <div class="reveal-left">
+      <div class="section-eyebrow" style="justify-content:flex-start;margin-bottom:1.5rem">
+        <span style="max-width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))"></span>
+        Visit Our Atelier
+      </div>
+      <h2 class="contact-title">Come, Experience<br><em>Gold in Person</em></h2>
+      <p class="contact-intro">Every jewellery piece deserves to be held, worn and felt before it is chosen. Visit Megha Jewellers in Kuvempu Nagar, Mysuru — and let our collection speak to you.</p>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <div><div class="contact-lbl">Our Address</div><div class="contact-val">MIG 33, Vivekananda Circle Road,<br>Kuvempu Nagar 1st Stage,<br>Mysuru, Karnataka – 570034</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.64 3.42 2 2 0 013.62 1.27h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.29 6.29l1.06-1.06a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="contact-lbl">Phone & WhatsApp</div><div class="contact-val"><a href="tel:+919945616530">+91 99456 16530</a><br><a href="https://wa.me/919945616530" target="_blank" rel="noopener">WhatsApp Us</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><div class="contact-lbl">Opening Hours</div><div class="contact-val">Monday – Sunday<br>10:00 AM – 9:00 PM</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-cards reveal-right">
+      <div class="ccard">
+        <h3 class="ccard-title">Chat on WhatsApp</h3>
+        <p class="ccard-desc">Ask about collections, customizations or schedule a visit. We respond promptly.</p>
+        <a href="https://wa.me/919945616530?text=Hello%2C%20I%20am%20interested%20in%20gold%20jewellery%20at%20Megha%20Jewellers%2C%20Mysuru." target="_blank" rel="noopener" class="btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.115 1.522 5.845L.057 23.882a.5.5 0 00.61.61l6.037-1.465A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.013-1.378l-.36-.214-3.726.904.92-3.636-.235-.374A9.818 9.818 0 1112 21.818z"/></svg>
+          Message on WhatsApp
+        </a>
+      </div>
+
+      <div class="ccard">
+        <h3 class="ccard-title">Get Directions</h3>
+        <p class="ccard-desc">Located at Vivekananda Circle Road, Kuvempu Nagar, Mysuru. Easy to find.</p>
+        <a href="https://maps.app.goo.gl/4ZRiftumD9fCfcvP6?g_st=ac" target="_blank" rel="noopener" class="btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Open in Google Maps
+        </a>
+      </div>
+
+      <div class="ccard">
+        <div style="font-family:var(--font-accent);font-size:.58rem;letter-spacing:.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem">Store Hours</div>
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">10:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">10:00 AM – 9:00 PM</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-logo">Megha Jewellers</div>
+  <div class="footer-copy">© 2026 Megha Jewellers, Mysuru. All rights reserved.</div>
+  <div class="footer-mark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+    22K · 916 Hallmark
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
