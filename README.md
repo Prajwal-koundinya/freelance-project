@@ -30,7 +30,8 @@ Every interaction is designed to communicate craftsmanship, elegance, and exclus
 
 ---
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)  ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite)  ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)  ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge)  ![ThreeJS](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js)  ![Gemini AI](https://img.shields.io/badge/Gemini-AI-8E75FF?style=for-the-badge)  ![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)  ![Made with Love](https://img.shields.io/badge/Made%20With-❤️-red?style=for-the-badge)  ![Status](https://img.shields.io/badge/Status-In%20Development-gold?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)  ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite)  ![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)  ![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge)  ![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge)  ![ThreeJS](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js)  ![Gemini AI](https://img.shields.io/badge/Gemini-AI-8E75FF?style=for-the-badge)  ![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)  
+![Made with Love](https://img.shields.io/badge/Made%20With-❤️-red?style=for-the-badge)  ![Status](https://img.shields.io/badge/Status-In%20Development-gold?style=for-the-badge)
 
 ---
 
