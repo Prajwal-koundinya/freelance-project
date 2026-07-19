@@ -241,24 +241,25 @@ Designed with modern web performance in mind.
 
 ---
 
-## 📍 Business Information
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react)
 
-**Megha Jewellers**
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite)
 
-📍 MIG 33, Vivekananda Circle Road, Vivekanandana Nagar, Kuvempu Nagar 1st Stage, Mysuru, Karnataka – 570034
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)
 
-📞 +91 99456 16530
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge)
 
-🕙 Open Daily: 10:00 AM – 9:00 PM
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge)
 
-Specializing in:
+![ThreeJS](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js)
 
-* 22 Carat Gold Jewellery
-* 916 Hallmark Jewellery
-* Antique Jewellery
-* Customized Jewellery
-* Bridal Collections
-* Lightweight Gold Designs
+![Gemini AI](https://img.shields.io/badge/Gemini-AI-8E75FF?style=for-the-badge)
+
+![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+![Made with Love](https://img.shields.io/badge/Made%20With-❤️-red?style=for-the-badge)
+
+![Status](https://img.shields.io/badge/Status-In%20Development-gold?style=for-the-badge)
 
 ---
 
@@ -266,7 +267,7 @@ Specializing in:
 
 This project explores the intersection of:
 
-* Artificial Intelligence
+* Freelancing 
 * Motion Design
 * Luxury Branding
 * Interactive Storytelling
